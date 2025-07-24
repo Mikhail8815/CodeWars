@@ -19,3 +19,23 @@ function solution(number) {
 console.log(solution(10))
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Напишите функцию, которая принимает строку из одного или нескольких слов и возвращает ту же строку, но все слова, содержащие пять или более букв, перевёрнуты (как в названии этого ката). Передаваемые строки будут состоять только из букв и пробелов. Пробелы будут учитываться только при наличии нескольких слов.
+
+// Примеры:
+
+// "Hey fellow warriors"  --> "Hey wollef sroirraw" 
+// "This is a test        --> "This is a test" 
+// "This is another test" --> "This is rehtona test"
+
+function spinWords(string){
+  const wordArray = string.split(' ')
+  for (i = 0; i < wordArray.length; i++) {
+    if (wordArray[i].length >=5) {
+        wordArray[i] = wordArray[i].split('').reverse().join('')
+    }
+  }
+  return(wordArray.join(' '))
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
