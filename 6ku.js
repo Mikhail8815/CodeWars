@@ -39,3 +39,37 @@ function spinWords(string){
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Вы, вероятно, знакомы с системой «лайков» на Facebook и других страницах. Люди могут ставить отметки «Нравится» публикациям в блогах, фотографиям и другим материалам. Мы хотим создать текст, который будет отображаться рядом с таким материалом.
+
+// Реализуйте функцию, которая принимает массив имён людей, которым понравился товар. Функция должна возвращать отображаемый текст, как показано в примерах:
+
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+// Примечание: для 4 и более имен число "and 2 others"просто увеличивается.
+
+function likes(names) {
+  const singleSuffix =  "likes this"
+  const pluralSuffix =  "like this"
+  let message
+  switch (names.length) {
+      case 0:
+      message = `no one ${singleSuffix}`
+      break;
+      case 1:
+      message = `${names[0]} ${singleSuffix}`
+      break;
+      case 2:
+      message = `${names[0]} and ${names[1]} ${pluralSuffix}`
+      break;
+      case 3:
+      message = `${names[0]}, ${names[1]} and ${names[2]} ${pluralSuffix}`
+      break;
+      default:
+      message = `${names[0]}, ${names[1]} and ${names.length - 2} others ${pluralSuffix}`
+  }
+  return message
+}
