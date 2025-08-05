@@ -300,3 +300,27 @@ function alphabetPosition(text) {
 }
 
 console.log(alphabetPosition(d))
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Напишите функцию, persistenceкоторая принимает положительный параметр numи возвращает его мультипликативную устойчивость, то есть количество раз, которое необходимо умножить цифры, numпока не получится однозначная цифра.
+
+// Например (Вход -> Выход) :
+
+// 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit, there are 3 multiplications)
+// 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2, there are 4 multiplications)
+// 4 --> 0 (because 4 is already a one-digit number, there is no multiplication)
+
+function persistence(num) {
+   if (num.toString().length === 1) {
+    return 0
+   } else {
+    let arr = num.toString().split('')
+    let res = arr.reduce((akk, el) => {
+       return akk*(+el)
+    }, 1)
+    return 1+persistence(res)
+   }
+}
+
+console.log(persistence(56))
