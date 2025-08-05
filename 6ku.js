@@ -223,3 +223,27 @@ function duplicateCount(text){
 
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+//  Цель этого упражнения — преобразовать строку в новую строку, где каждый символ в новой строке "("встречается только один раз в исходной строке или ")"встречается несколько раз. При определении дубликата символа не учитывайте регистр.
+
+// Примеры
+// "din"      =>  "((("
+// "recede"   =>  "()()()"
+// "Success"  =>  ")())())"
+// "(( @"     =>  "))((" 
+
+
+ const b = 'aaAbBBc3'
+
+function duplicateEncode(word){
+    const lowerArr = word.toLowerCase().split('')
+    const newArr = []
+
+    lowerArr.forEach((e, i) => {
+        lowerArr.filter((el) => el === e).length > 1 ? newArr[i] = ')' : newArr[i] = '('
+    })
+    return newArr.join('');
+}
+
+console.log(duplicateEncode(b))
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
