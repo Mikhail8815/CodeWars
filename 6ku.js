@@ -324,3 +324,29 @@ function persistence(num) {
 }
 
 console.log(persistence(56))
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Дополните метод/функцию так, чтобы он преобразовывал слова, разделённые тире/подчёркиванием, в «верблюжий» регистр . 
+// Первое слово в выводе должно быть написано с заглавной буквы только в том случае, если исходное слово было написано 
+// с заглавной буквы (так называемый «верхний верблюжий регистр», также часто называемый «паскалевским регистром»). 
+// Последующие слова должны всегда начинаться с заглавной буквы.
+
+// Примеры
+// "the-stealth-warrior"преобразуется в"theStealthWarrior"
+
+// "The_Stealth_Warrior"преобразуется в"TheStealthWarrior"
+
+// "The_Stealth-Warrior"преобразуется в"TheStealthWarrior"
+
+let s = "the-stealth-warrior"
+
+function toCamelCase(str){
+   let arr = str.split(/[_-]/)
+   for (let i = 1; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
+   }
+   return arr.join('')
+}
+
+console.log(toCamelCase(s))
