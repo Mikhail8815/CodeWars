@@ -375,3 +375,36 @@ function narcissistic(value) {
   }, 0)
   return value === num
 }
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Ваша задача — отсортировать заданную строку. Каждое слово в строке будет содержать одно число. Это число — позиция, которую слово должно занимать в результатах.
+
+// Примечание: числа могут быть от 1 до 9. Поэтому первым словом будет 1 (а не 0).
+
+// Если входная строка пуста, вернуть пустую строку. Слова во входной строке будут содержать только допустимые последовательные цифры.
+
+// Примеры
+// "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+// "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+// ""  -->  ""
+
+let u = "is2 Thi1s T4est 3a"  
+
+function order(words){
+  if (words === ' ') {
+    return words
+  }
+
+  let arr = words.split(' ')
+  
+  const sorted = arr.sort((a, b) => {
+    const numA = +a.match(/\d/)[0]
+    const numB = +b.match(/\d/)[0]
+    return numA -numB
+  })
+
+  return sorted.join(' ')
+}
+
+console.log(order(u))
