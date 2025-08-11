@@ -84,3 +84,35 @@ function rgb(r, g, b) {
   // Возвращаем объединённую строку
   return hexR + hexG + hexB;
 }
+
+//**********************************************************/
+// На этот раз мы хотим записать вычисления с использованием функций и получить результаты. Давайте рассмотрим несколько примеров:
+
+// seven(times(five()));   //  must return 35
+// four(plus(nine()));     //  must return 13
+// eight(minus(three()));  //  must return 5
+// six(dividedBy(two()));  //  must return 3
+// Требования:
+
+// Для каждого числа от 0 («ноль») до 9 («девять») должна быть функция.
+// Должна быть функция для каждой из следующих математических операций: плюс, минус, умножить, разделить на
+// Каждое вычисление состоит ровно из одной операции и двух чисел.
+// Самая внешняя функция представляет левый операнд, самая внутренняя функция представляет правый операнд.
+// Деление должно быть целочисленным . Например, это должно вернуть 2, а не 2.666666...:
+// eight(dividedBy(three()));
+
+function zero(operation) { return operation ? operation(0) : 0; }
+function one(operation) { return operation ? operation(1) : 1; }
+function two(operation) { return operation ? operation(2) : 2; }
+function three(operation) { return operation ? operation(3) : 3; }
+function four(operation) { return operation ? operation(4) : 4; }
+function five(operation) { return operation ? operation(5) : 5; }
+function six(operation) { return operation ? operation(6) : 6; }
+function seven(operation) { return operation ? operation(7) : 7; }
+function eight(operation) { return operation ? operation(8) : 8; }
+function nine(operation) { return operation ? operation(9) : 9; }
+
+function plus(rightOperand) { return leftOperand => leftOperand + rightOperand; }
+function minus(rightOperand) { return leftOperand => leftOperand - rightOperand; }
+function times(rightOperand) { return leftOperand => leftOperand * rightOperand; }
+function dividedBy(rightOperand) { return leftOperand => Math.floor(leftOperand / rightOperand); }
