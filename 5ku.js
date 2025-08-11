@@ -116,3 +116,30 @@ function plus(rightOperand) { return leftOperand => leftOperand + rightOperand; 
 function minus(rightOperand) { return leftOperand => leftOperand - rightOperand; }
 function times(rightOperand) { return leftOperand => leftOperand * rightOperand; }
 function dividedBy(rightOperand) { return leftOperand => Math.floor(leftOperand / rightOperand); }
+
+//****************************************************************/
+
+
+// Напишите функцию с именем first_non_repeating_letter† , которая принимает на вход строку и возвращает первый символ, который не повторяется нигде в строке.
+
+// Например, если заданы входные данные 'stress', функция должна вернуть 't', поскольку буква t встречается в строке только один раз и является первой в строке.
+
+// Дополнительную сложность представляет то, что заглавные и строчные буквы считаются одним и тем же символом , но функция должна возвращать правильный регистр для первой буквы. Например, входные данные 'sTreSS'должны возвращать 'T'.
+
+// Если строка содержит все повторяющиеся символы , она должна возвращать пустую строку ( "");
+
+// † Примечание: функция вызывается firstNonRepeatingLetterпо историческим причинам, но ваша функция должна обрабатывать любой символ Unicode.
+
+
+function firstNonRepeatingLetter(s) {
+  const charCount = {}
+  for (char of s) {
+     charCount[char.toLowerCase()] = (charCount[char.toLowerCase()] || 0) +1
+  }
+  for (char of s) {
+     if (charCount[char.toLowerCase()] === 1) {
+      return char
+     }
+  }
+  return ""
+}
