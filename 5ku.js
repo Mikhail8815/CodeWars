@@ -143,3 +143,22 @@ function firstNonRepeatingLetter(s) {
   }
   return ""
 }
+
+//********************************************************/
+
+// Напишите функцию, которая, получив URL в виде строки, извлекает только доменное имя и возвращает его в виде строки. Например:
+
+// * url = "http://github.com/carbonfive/raygun" -> domain name = "github"
+// * url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
+// * url = "https://www.cnet.com"                -> domain name = cnet"
+
+let url1 = "http://github.com/carbonfive/raygun"
+let url2 = "http://www.zombie-bites.com"
+
+function domainName(url) {
+  url = url.replace('https://', '').replace('http://', '').replace('www.', '');
+  const domain = url.split(/[/?#]/)[0];
+  return domain.split('.')[0];
+}
+
+console.log(domainName(url2))
